@@ -1,0 +1,19 @@
+#:import Header widgets.header
+#:import FooterMenu widgets.footer_menu
+
+<BaseScreen>:
+    title: ''
+
+    FloatLayout
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Header:
+            id: header
+            text: root.title
+
+        FooterMenu:

@@ -1,0 +1,32 @@
+<MainScreen>:
+    title: 'Главный'
+
+    BoxLayout:
+        size_hint: 1, 0.8
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        orientation: 'vertical'
+        padding: 7
+        spacing: 7
+
+        TextInput:
+            id: input
+            hint_text: 'Введите текст и щелкните два раза по полю ввода'
+            font_size: 15
+            padding: 10
+            multiline: True
+            size_hint: 1, .3
+            on_double_tap: root.translate_text()
+            on_triple_tap: self.text=''
+
+        ScrollView
+
+            Label:
+                id: output_view
+                size_hint_y: None
+                text: ''
+                font_size: 15
+                padding: 5, 5
+                halign: 'justify'
+                color: 0, 0, 0, 1
+                text_size: self.width, None
+                height: self.texture_size[1]

@@ -1,0 +1,4 @@
+Cython==0.25.1
+Kivy==1.9.1
+pygame
+requests==2.11.1

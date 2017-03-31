@@ -1,0 +1,18 @@
+<Header>
+    text: ''
+    canvas.before:
+        Color:
+            rgba: 1, 0.863, 0.38, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    size_hint: 1, 0.1
+    pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+
+    Label:
+        id: label
+        text: '[ref=*]' + root.text + '[/ref]'
+        color: 0, 0, 0, 1
+        size_hint: 1, 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        markup: True
