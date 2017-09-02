@@ -1,0 +1,43 @@
+#:import styles assets.styles
+
+<TranslationLabel@Label>
+    padding: 2, 2
+    spacing: 0, 0
+    size_hint: 1, None
+    text_size: self.width, None
+    height: self.texture_size[1]
+    font_size: styles.H1
+    color: styles.BLACK
+    halign: 'left'
+    valign: 'middle'
+
+<Translation>
+    size_hint_y: None
+    cols: 1
+    padding: 10, 5
+    canvas:
+        Color:
+            rgba: styles.GREY
+        Line:
+            points: self.x, self.y, self.x + self.width, self.y
+            width: 0.2
+    TranslationLabel:
+        text: root.text
+    TranslationLabel:
+        font_size: styles.H2
+        color: styles.GREY
+        text: root.translation
+
+
+<FavouritesScreen>:
+    title: 'Коллекция переводов'
+    translations_wrapper: translations_wrapper
+
+    ScrollView:
+        size_hint: 1, 0.79
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        GridLayout:
+            id: translations_wrapper
+            size_hint_y: None
+            cols: 1

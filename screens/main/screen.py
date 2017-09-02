@@ -4,7 +4,7 @@ from core.translator_engine import TranslatorEngine
 from screens.base.screen import BaseScreen
 
 
-from utils.store import get_favorives, save_translation
+from utils.store import save_translation
 
 
 Builder.load_file('screens/main/main.kv')
@@ -43,9 +43,3 @@ class MainScreen(BaseScreen):
             original_lang=self.original_lang[0],
             translation=translation,
             expected_transl=self.expected_transl[0])
-
-    def on_get_saved_translations(self):
-        translations_list = get_favorives()
-        self.ids.output_view.text = ''
-        for translation in translations_list:
-            self.ids.output_view.text += translation[1]['text']

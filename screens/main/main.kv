@@ -1,4 +1,5 @@
 #:import PanelButton widgets.icon_buttons
+#:import styles assets.styles
 
 <MainScreen>:
     title: 'Главный'
@@ -13,7 +14,7 @@
         TextInput:
             id: input
             hint_text: 'Введите текст и щелкните два раза по полю ввода'
-            font_size: 15
+            font_size: styles.H1
             padding: 10
             multiline: True
             size_hint: 1, .3
@@ -30,10 +31,10 @@
                     id: output_view
                     size_hint: 0.9, None
                     text: ''
-                    font_size: 15
+                    font_size: styles.H1
                     padding: 5, 5
                     halign: 'justify'
-                    color: 0, 0, 0, 1
+                    color: styles.BLACK
                     text_size: self.width, None
                     height: self.texture_size[1]
 

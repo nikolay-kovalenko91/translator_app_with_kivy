@@ -1,5 +1,6 @@
 #:import Header widgets.header
 #:import FooterMenu widgets.footer_menu
+#:import styles assets.styles
 
 <BaseScreen>:
     title: ''
@@ -7,7 +8,7 @@
     FloatLayout
         canvas.before:
             Color:
-                rgba: 1, 1, 1, 1
+                rgba: styles.WHITE
             Rectangle:
                 pos: self.pos
                 size: self.size

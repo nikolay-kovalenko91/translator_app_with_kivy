@@ -1,4 +1,5 @@
 #:import FooterMenuButton widgets.icon_buttons
+#:import styles assets.styles
 
 <FooterMenu>
     size_hint: 1, 0.12
@@ -10,7 +11,7 @@
         pos_hint: {'center_x': 0.5, 'center_y': 0.9}
         canvas:
             Color:
-                rgb: 0.8, 0.8, 0.8
+                rgb: styles.DARK_GREY
             Rectangle:
                 pos: 0, self.center_y
                 size: self.width, 2
@@ -22,6 +23,10 @@
         FooterMenuButton:
             text: "\uf1ab"
             on_press: root.switch_screen('main')
+
+        FooterMenuButton:
+            text: "\uf097"
+            on_press: root.switch_screen('favourites')
 
         FooterMenuButton:
             text: "\uf05a"
