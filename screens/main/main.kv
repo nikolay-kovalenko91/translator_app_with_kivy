@@ -1,3 +1,5 @@
+#:import PanelButton widgets.icon_buttons
+
 <MainScreen>:
     title: 'Главный'
 
@@ -18,15 +20,26 @@
             on_double_tap: root.translate_text()
             on_triple_tap: self.text=''
 
-        ScrollView
+        ScrollView:
 
-            Label:
-                id: output_view
+            BoxLayout:
+                height: output_view.height
                 size_hint_y: None
-                text: ''
-                font_size: 15
-                padding: 5, 5
-                halign: 'justify'
-                color: 0, 0, 0, 1
-                text_size: self.width, None
-                height: self.texture_size[1]
+
+                Label:
+                    id: output_view
+                    size_hint: 0.9, None
+                    text: ''
+                    font_size: 15
+                    padding: 5, 5
+                    halign: 'justify'
+                    color: 0, 0, 0, 1
+                    text_size: self.width, None
+                    height: self.texture_size[1]
+
+                PanelButton:
+                    size_hint: 0.1, 1
+                    height: 20
+                    opacity: 1 if output_view.text else 0
+                    text: "\uf097"
+                    on_press: root.on_save_translation()
