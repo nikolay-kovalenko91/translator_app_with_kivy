@@ -1,5 +1,5 @@
 import json
-from requests import Session
+from requests import Session, exceptions
 
 from kivy.logger import Logger
 
@@ -25,7 +25,12 @@ class YandexTranslator:
 
     def _send_data(self, data):
         session = Session()
-        res = session.post(YANDEX_TRANSLATOR_URL, data=data)
+        res = None
+        try:
+            res = session.post(YANDEX_TRANSLATOR_URL, data=data)
+        except exceptions.ConnectionError as e:
+            Logger.error('Internet connection error: {}'.format(e))
+            return ''
         res_json_text = json.loads(res.text)
         res_text = ''
         if res.status_code is not 200:

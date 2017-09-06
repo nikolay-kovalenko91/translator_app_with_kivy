@@ -23,7 +23,6 @@ class MainScreen(BaseScreen):
     def update_translation_direction(self):
         self.original_lang, self.expected_transl = self.expected_transl, self.original_lang
         self.title = '{} [font=FontAwesome]\uf07e[/font] {}'.format(self.original_lang[1], self.expected_transl[1])
-        self.ids.input.text = ''
         self.ids.output_view.text = ''
 
     def on_title_press(self, *args):
