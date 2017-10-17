@@ -17,16 +17,15 @@ class MainScreen(BaseScreen):
 
     def __init__(self, *args, **kwargs):
         super(MainScreen, self).__init__()
-        self.update_translation_direction()
         self.tr_engine = TranslatorEngine()
 
-    def update_translation_direction(self):
+    def on_language_choice(self):
+        """
+        Updates translation direction
+        :return:
+        """
         self.original_lang, self.expected_transl = self.expected_transl, self.original_lang
-        self.title = '{} [font=FontAwesome]\uf07e[/font] {}'.format(self.original_lang[1], self.expected_transl[1])
         self.ids.output_view.text = ''
-
-    def on_title_press(self, *args):
-        self.update_translation_direction()
 
     def translate_text(self):
         text = self.ids.input.text

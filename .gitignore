@@ -5,3 +5,5 @@ local_settings.py
 check_pep8.sh
 .DS_Store
 kivy_translator.json
+buildozer.spec
+.buildozer

@@ -1,8 +1,14 @@
 #:import styles assets.styles
+#:import PanelButton widgets.icon_buttons
+
+<LanguageLabel@Label>:
+    size_hint: 0.3, 1
+    color: styles.BLACK
+
 
 <Header>
     text: ''
-    canvas.before:
+    canvas:
         Color:
             rgba: styles.YELLOW
         Rectangle:
@@ -11,10 +17,27 @@
     size_hint: 1, 0.1
     pos_hint: {'center_x': 0.5, 'center_y': 0.95}
 
-    Label:
-        id: label
-        text: '[ref=*]' + root.text + '[/ref]'
-        color: styles.BLACK
-        size_hint: 1, 1
+    LanguageLabel:
+        id: left_language_label
+        pos_hint: {'center_x': 0.25, 'center_y': 0.5}
+        text: "Английский"
+        opacity: root._language_label_opacity
+
+    PanelButton:
+        size: 20, 20
+        size_hint: None, None
         pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-        markup: True
+        text: "\uf07e"
+        on_press: root.on_language_button_click()
+        canvas.before:
+            PushMatrix
+            Rotate:
+                angle: root._direction_arrow_angle
+                origin: self.center
+        canvas.after:
+            PopMatrix
+
+    LanguageLabel:
+        id: right_language_label
+        pos_hint: {'center_x': 0.75, 'center_y': 0.5}
+        text: "Русский"
