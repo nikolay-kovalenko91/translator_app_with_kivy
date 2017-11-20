@@ -7,3 +7,11 @@
 Первая часть статьи доступна по ссылке: <https://ru.smedialink.com/razrabotka/kross-platformennoe-prilozhenie-perevodchik-na-frejmforke-kivy-chast-1/>
 
 Первой части статьи соответствует функционал ветки **master**, второй части статьи(в стадии публикации) соответствует ветка **release-2**.
+
+# Установка и запуск
+
+1) pip install -r requirements.txt
+
+2) В корневой директории создать файл **local_settings.py**, c содержимым ```YANDEX_TRANSLATOR_API_KEY = 'xxx'```, где ```xxx``` - ваш ключ API Яндекс-переводчика.
+
+3) python3 app.py
